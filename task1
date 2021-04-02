@@ -1,0 +1,1038 @@
+Python入门(上)
+简介
+
+变量、运算符与数据类型
+1. 注释
+2. 运算符
+3. 变量和赋值
+4. 数据类型与转换
+5. print()函数
+
+位运算
+1. 原码、反码和补码
+2. 按位运算
+3. 利用位运算实现快速计算
+4. 利用位运算实现整数集合
+
+条件语句
+1. if 语句
+2. if - else 语句
+3. if - elif - else 语句
+4. assert 关键词
+
+循环语句
+1. while 循环
+2. while - else 循环
+3. for 循环
+4. for - else 循环
+5. range() 函数
+6. enumerate()函数
+7. break 语句
+8. continue 语句
+9. pass 语句
+10. 推导式
+
+异常处理
+1. Python 标准异常总结
+2. Python 标准警告总结
+3. try - except 语句
+4. try - except - finally 语句
+5. try - except - else 语句
+6. raise语句
+
+简介
+Python 是一种通用编程语言，其在科学计算和机器学习领域具有广泛的应用。如果我们打算利用 Python 来执行机器学习，那么对 Python 有一些基本的了解就是至关重要的。本 Python 入门系列体验就是为这样的初学者精心准备的。
+
+本实验包括以下内容：
+
+变量、运算符与数据类型
+注释
+运算符
+变量和赋值
+数据类型与转换
+print() 函数
+位运算
+原码、反码和补码
+按位非操作 ~
+按位与操作 &
+按位或操作 |
+按位异或操作 ^
+按位左移操作 <<
+按位右移操作 >>
+利用位运算实现快速计算
+利用位运算实现整数集合
+条件语句
+if 语句
+if - else 语句
+if - elif - else 语句
+assert 关键词
+循环语句
+while 循环
+while - else 循环
+for 循环
+for - else 循环
+range() 函数
+enumerate()函数
+break 语句
+continue 语句
+pass 语句
+推导式
+异常处理
+Python 标准异常总结
+Python 标准警告总结
+try - except 语句
+try - except - finally 语句
+try - except - else 语句
+raise语句
+变量、运算符与数据类型
+1. 注释
+在 Python 中，# 表示注释，作用于整行。
+【例子】单行注释
+
+1
+# 这是一个注释
+2
+print("Hello world")
+3
+​
+4
+# Hello world
+Hello world
+''' ''' 或者 """ """ 表示区间注释，在三引号之间的所有内容被注释
+【例子】多行注释
+
+1
+'''
+2
+这是多行注释，用三个单引号
+3
+这是多行注释，用三个单引号
+4
+这是多行注释，用三个单引号
+5
+'''
+6
+print("Hello china") 
+7
+# Hello china
+8
+​
+9
+"""
+10
+这是多行注释，用三个双引号
+11
+这是多行注释，用三个双引号 
+12
+这是多行注释，用三个双引号
+13
+"""
+14
+print("hello china") 
+15
+# hello china
+Hello china
+
+hello china
+【我是测试题1】请在下方代码块中打印(print)出 hello+你的姓名
+如：print("hello 老表")
+
+1
+# 写下你的答案
+2
+​
+2. 运算符
+算术运算符
+
+操作符	名称	示例
++	加	1 + 1
+-	减	2 - 1
+*	乘	3 * 4
+/	除	3 / 4
+//	整除（地板除）	3 // 4
+%	取余	3 % 4
+**	幂	2 ** 3
+【例子】
+
+1
+print(1 + 1)  # 2
+2
+print(2 - 1)  # 1
+3
+print(3 * 4)  # 12
+4
+print(3 / 4)  # 0.75
+5
+print(3 // 4)  # 0
+6
+print(3 % 4)  # 3
+7
+print(2 ** 3)  # 8
+2
+
+1
+
+12
+
+0.75
+
+0
+
+3
+
+8
+比较运算符
+
+操作符	名称	示例
+>	大于	2 > 1
+>=	大于等于	2 >= 4
+<	小于	1 < 2
+<=	小于等于	5 <= 2
+==	等于	3 == 4
+!=	不等于	3 != 5
+【例子】
+
+1
+print(2 > 1)  # True
+2
+print(2 >= 4)  # False
+3
+print(1 < 2)  # True
+4
+print(5 <= 2)  # False
+5
+print(3 == 4)  # False
+6
+print(3 != 5)  # True
+True
+
+False
+
+True
+
+False
+
+False
+
+True
+逻辑运算符
+
+操作符	名称	示例
+and	与	(3 > 2) and (3 < 5)
+or	或	(1 > 3) or (9 < 2)
+not	非	not (2 > 1)
+【例子】
+
+1
+print((3 > 2) and (3 < 5))  # True
+2
+print((1 > 3) or (9 < 2))  # False
+3
+print(not (2 > 1))  # False
+True
+
+False
+
+False
+位运算符
+
+操作符	名称	示例
+~	按位取反	~4
+&	按位与	4 & 5
+`	`	按位或
+^	按位异或	4 ^ 5
+<<	左移	4 << 2
+>>	右移	4 >> 2
+【例子】有关二进制的运算，参见“位运算”部分的讲解。
+
+1
+print(bin(4))  # 0b100
+2
+print(bin(5))  # 0b101
+3
+print(bin(~4), ~4)  # -0b101 -5
+4
+print(bin(4 & 5), 4 & 5)  # 0b100 4
+5
+print(bin(4 | 5), 4 | 5)  # 0b101 5
+6
+print(bin(4 ^ 5), 4 ^ 5)  # 0b1 1
+7
+print(bin(4 << 2), 4 << 2)  # 0b10000 16
+8
+print(bin(4 >> 2), 4 >> 2)  # 0b1 1
+0b100
+
+0b101
+
+-0b101 -5
+
+0b100 4
+
+0b101 5
+
+0b1 1
+
+0b10000 16
+
+0b1 1
+三元运算符
+
+【例子】
+
+1
+x, y = 4, 5
+2
+if x < y:
+3
+    small = x
+4
+else:
+5
+    small = y
+6
+​
+7
+print(small)  # 4
+4
+有了这个三元操作符的条件表达式，你可以使用一条语句来完成以上的条件判断和赋值操作。
+
+【例子】
+
+1
+x, y = 4, 5
+2
+small = x if x < y else y
+3
+print(small)  # 4
+4
+其他运算符
+
+操作符	名称	示例
+in	存在	'A' in ['A', 'B', 'C']
+not in	不存在	'h' not in ['A', 'B', 'C']
+is	是	"hello" is "hello"
+not is	不是	"hello" is not "hello"
+【例子】
+
+1
+letters = ['A', 'B', 'C']
+2
+if 'A' in letters:
+3
+    print('A' + ' exists')
+4
+if 'h' not in letters:
+5
+    print('h' + ' not exists')
+6
+​
+7
+# A exists
+8
+# h not exists
+A exists
+
+h not exists
+【例子】比较的两个变量均指向不可变类型。
+
+1
+a = "hello"
+2
+b = "hello"
+3
+print(a is b, a == b)  # True True
+4
+print(a is not b, a != b)  # False False
+True True
+
+False False
+【例子】比较的两个变量均指向可变类型。
+
+1
+a = ["hello"]
+2
+b = ["hello"]
+3
+print(a is b, a == b)  # False True
+4
+print(a is not b, a != b)  # True False
+False True
+
+True False
+注意：
+
+is, is not 对比的是两个变量的内存地址
+==, != 对比的是两个变量的值
+比较的两个变量，指向的都是地址不可变的类型（str等），那么is，is not 和 ==，！= 是完全等价的。
+对比的两个变量，指向的是地址可变的类型（list，dict，tuple等），则两者是有区别的。
+运算符的优先级
+
+运算符	描述
+**	指数（最高优先级）
+~+-	按位翻转，一元加号和减号
+* / % //	乘，除，取模和取整除）
++ -	加法减法
+>> <<	右移，左移运算符
+&	位‘AND’
+^|	位运算符
+<=<>>=	比较运算符
+<>==!=	等于运算符
+=%=/=//=-=+==*=	赋值运算符
+is is not	身份运算符
+in not in	成员运算符
+not and or	逻辑运算符
+【例子】
+
+1
+print(-3 ** 2)  # -9
+2
+print(3 ** -2)  # 0.1111111111111111
+3
+print(1 << 3 + 2 & 7)  # 0
+4
+print(-3 * 2 + 5 / -2 - 4)  # -12.5
+5
+print(3 < 4 and 4 < 5)  # True
+-9
+
+0.1111111111111111
+
+0
+
+-12.5
+
+True
+【我是测试题2】下面这段代码的运行结果是什么？
+
+1
+# 运行一下结果就出来了
+2
+a = "hello"
+3
+b = "hello"
+4
+print(a is b, a == b)
+3. 变量和赋值
+在使用变量之前，需要对其先赋值。
+变量名可以包括字母、数字、下划线、但变量名不能以数字开头。
+Python 变量名是大小写敏感的，foo != Foo。
+【例子】
+
+1
+teacher = "老马的程序人生"
+2
+print(teacher)  # 老马的程序人生
+老马的程序人生
+【例子】
+
+1
+first = 2
+2
+second = 3
+3
+third = first + second
+4
+print(third)  # 5
+5
+【例子】
+
+1
+myTeacher = "老马的程序人生"
+2
+yourTeacher = "小马的程序人生"
+3
+ourTeacher = myTeacher + ',' + yourTeacher
+4
+print(ourTeacher)  # 老马的程序人生,小马的程序人生
+老马的程序人生,小马的程序人生
+【我是测试题3】运行下面一段代码看看结果是什么？
+
+1
+# 运行一下就好啦
+2
+set_1 = {"欢迎", "学习","Python"}
+3
+print(set_1.pop())
+4. 数据类型与转换
+类型	名称	示例
+int	整型 <class 'int'>	-876, 10
+float	浮点型<class 'float'>	3.149, 11.11
+bool	布尔型<class 'bool'>	True, False
+整型
+
+【例子】通过 print() 可看出 a 的值，以及类 (class) 是int。
+
+1
+a = 1031
+2
+print(a, type(a))
+3
+# 1031 <class 'int'>
+1031 <class 'int'>
+Python 里面万物皆对象（object），整型也不例外，只要是对象，就有相应的属性 （attributes） 和方法（methods）。
+
+【例子】
+
+1
+b = dir(int)
+2
+print(b)
+3
+​
+4
+# ['__abs__', '__add__', '__and__', '__bool__', '__ceil__', '__class__',
+5
+# '__delattr__', '__dir__', '__divmod__', '__doc__', '__eq__',
+6
+# '__float__', '__floor__', '__floordiv__', '__format__', '__ge__',
+7
+# '__getattribute__', '__getnewargs__', '__gt__', '__hash__',
+8
+# '__index__', '__init__', '__init_subclass__', '__int__', '__invert__',
+9
+# '__le__', '__lshift__', '__lt__', '__mod__', '__mul__', '__ne__',
+10
+# '__neg__', '__new__', '__or__', '__pos__', '__pow__', '__radd__',
+11
+# '__rand__', '__rdivmod__', '__reduce__', '__reduce_ex__', '__repr__',
+12
+# '__rfloordiv__', '__rlshift__', '__rmod__', '__rmul__', '__ror__',
+13
+# '__round__', '__rpow__', '__rrshift__', '__rshift__', '__rsub__',
+14
+# '__rtruediv__', '__rxor__', '__setattr__', '__sizeof__', '__str__',
+15
+# '__sub__', '__subclasshook__', '__truediv__', '__trunc__', '__xor__',
+16
+# 'bit_length', 'conjugate', 'denominator', 'from_bytes', 'imag',
+17
+# 'numerator', 'real', 'to_bytes']
+['__abs__', '__add__', '__and__', '__bool__', '__ceil__', '__class__', '__delattr__', '__dir__', '__divmod__', '__doc__', '__eq__', '__float__', '__floor__', '__floordiv__', '__format__', '__ge__', '__getattribute__', '__getnewargs__', '__gt__', '__hash__', '__index__', '__init__', '__init_subclass__', '__int__', '__invert__', '__le__', '__lshift__', '__lt__', '__mod__', '__mul__', '__ne__', '__neg__', '__new__', '__or__', '__pos__', '__pow__', '__radd__', '__rand__', '__rdivmod__', '__reduce__', '__reduce_ex__', '__repr__', '__rfloordiv__', '__rlshift__', '__rmod__', '__rmul__', '__ror__', '__round__', '__rpow__', '__rrshift__', '__rshift__', '__rsub__', '__rtruediv__', '__rxor__', '__setattr__', '__sizeof__', '__str__', '__sub__', '__subclasshook__', '__truediv__', '__trunc__', '__xor__', 'bit_length', 'conjugate', 'denominator', 'from_bytes', 'imag', 'numerator', 'real', 'to_bytes']
+对它们有个大概印象就可以了，具体怎么用，需要哪些参数 （argument），还需要查文档。看个bit_length()的例子。
+
+【例子】找到一个整数的二进制表示，再返回其长度。
+
+1
+a = 1031
+2
+print(bin(a))  # 0b10000000111
+3
+print(a.bit_length())  # 11
+0b10000000111
+
+11
+浮点型
+
+【例子】
+
+1
+print(1, type(1))
+2
+# 1 <class 'int'>
+3
+​
+4
+print(1., type(1.))
+5
+# 1.0 <class 'float'>
+6
+​
+7
+a = 0.00000023
+8
+b = 2.3e-7
+9
+print(a)  # 2.3e-07
+10
+print(b)  # 2.3e-07
+1 <class 'int'>
+
+1.0 <class 'float'>
+
+2.3e-07
+
+2.3e-07
+有时候我们想保留浮点型的小数点后 n 位。可以用 decimal 包里的 Decimal 对象和 getcontext() 方法来实现。
+
+1
+import decimal
+2
+from decimal import Decimal
+Python 里面有很多用途广泛的包 (package)，用什么你就引进 (import) 什么。包也是对象，也可以用上面提到的dir(decimal) 来看其属性和方法。
+
+【例子】getcontext() 显示了 Decimal 对象的默认精度值是 28 位 (prec=28)。
+
+1
+a = decimal.getcontext()
+2
+print(a)
+3
+​
+4
+# Context(prec=28, rounding=ROUND_HALF_EVEN, Emin=-999999, Emax=999999,
+5
+# capitals=1, clamp=0, flags=[], 
+6
+# traps=[InvalidOperation, DivisionByZero, Overflow])
+Context(prec=28, rounding=ROUND_HALF_EVEN, Emin=-999999, Emax=999999, capitals=1, clamp=0, flags=[], traps=[InvalidOperation, DivisionByZero, Overflow])
+1
+b = Decimal(1) / Decimal(3)
+2
+print(b)
+3
+​
+4
+# 0.3333333333333333333333333333
+0.3333333333333333333333333333
+【例子】使 1/3 保留 4 位，用 getcontext().prec 来调整精度。
+
+1
+decimal.getcontext().prec = 4
+2
+c = Decimal(1) / Decimal(3)
+3
+print(c)
+4
+​
+5
+# 0.3333
+0.3333
+布尔型
+
+布尔 (boolean) 型变量只能取两个值，True 和 False。当把布尔型变量用在数字运算中，用 1 和 0 代表 True 和 False。
+
+【例子】
+
+1
+print(True + True)  # 2
+2
+print(True + False)  # 1
+3
+print(True * False)  # 0
+2
+
+1
+
+0
+除了直接给变量赋值 True 和 False，还可以用 bool(X) 来创建变量，其中 X 可以是
+
+基本类型：整型、浮点型、布尔型
+容器类型：字符串、元组、列表、字典和集合
+【例子】bool 作用在基本类型变量：X 只要不是整型 0、浮点型 0.0，bool(X) 就是 True，其余就是 False。
+
+1
+print(type(0), bool(0), bool(1))
+2
+# <class 'int'> False True
+3
+​
+4
+print(type(10.31), bool(0.00), bool(10.31))
+5
+# <class 'float'> False True
+6
+​
+7
+print(type(True), bool(False), bool(True))
+8
+# <class 'bool'> False True
+<class 'int'> False True
+
+<class 'float'> False True
+
+<class 'bool'> False True
+【例子】bool 作用在容器类型变量：X 只要不是空的变量，bool(X) 就是 True，其余就是 False。
+
+1
+print(type(''), bool(''), bool('python'))
+2
+# <class 'str'> False True
+3
+​
+4
+print(type(()), bool(()), bool((10,)))
+5
+# <class 'tuple'> False True
+6
+​
+7
+print(type([]), bool([]), bool([1, 2]))
+8
+# <class 'list'> False True
+9
+​
+10
+print(type({}), bool({}), bool({'a': 1, 'b': 2}))
+11
+# <class 'dict'> False True
+12
+​
+13
+print(type(set()), bool(set()), bool({1, 2}))
+14
+# <class 'set'> False True
+<class 'str'> False True
+
+<class 'tuple'> False True
+
+<class 'list'> False True
+
+<class 'dict'> False True
+
+<class 'set'> False True
+确定bool(X) 的值是 True 还是 False，就看 X 是不是空，空的话就是 False，不空的话就是 True。
+
+对于数值变量，0, 0.0 都可认为是空的。
+对于容器变量，里面没元素就是空的。
+获取类型信息
+
+获取类型信息 type(object)
+【例子】
+
+1
+print(isinstance(1, int))  # True
+2
+print(isinstance(5.2, float))  # True
+3
+print(isinstance(True, bool))  # True
+4
+print(isinstance('5.2', str))  # True
+True
+
+True
+
+True
+
+True
+注：
+
+type() 不会认为子类是一种父类类型，不考虑继承关系。
+isinstance() 会认为子类是一种父类类型，考虑继承关系。
+如果要判断两个类型是否相同推荐使用 isinstance()。
+
+类型转换
+
+转换为整型 int(x, base=10)
+转换为字符串 str(object='')
+转换为浮点型 float(x)
+【例子】
+
+1
+print(int('520'))  # 520
+2
+print(int(520.52))  # 520
+3
+print(float('520.52'))  # 520.52
+4
+print(float(520))  # 520.0
+5
+print(str(10 + 10))  # 20
+6
+print(str(10.1 + 5.2))  # 15.3
+520
+
+520
+
+520.52
+
+520.0
+
+20
+
+15.3
+5. print() 函数
+1
+print(*objects, sep=' ', end='\n', file=sys.stdout, flush=False)
+将对象以字符串表示的方式格式化输出到流文件对象file里。其中所有非关键字参数都按str()方式进行转换为字符串输出；
+关键字参数sep是实现分隔符，比如多个参数输出时想要输出中间的分隔字符；
+关键字参数end是输出结束时的字符，默认是换行符\n；
+关键字参数file是定义流输出的文件，可以是标准的系统输出sys.stdout，也可以重定义为别的文件；
+关键字参数flush是立即把内容输出到流文件，不作缓存。
+【例子】没有参数时，每次输出后都会换行。
+
+1
+shoplist = ['apple', 'mango', 'carrot', 'banana']
+2
+print("This is printed without 'end'and 'sep'.")
+3
+for item in shoplist:
+4
+    print(item)
+5
+​
+6
+# This is printed without 'end'and 'sep'.
+7
+# apple
+8
+# mango
+9
+# carrot
+10
+# banana
+This is printed without 'end'and 'sep'.
+
+apple
+
+mango
+
+carrot
+
+banana
+【例子】每次输出结束都用end设置的参数&结尾，并没有默认换行。
+
+1
+shoplist = ['apple', 'mango', 'carrot', 'banana']
+2
+print("This is printed with 'end='&''.")
+3
+for item in shoplist:
+4
+    print(item, end='&')
+5
+print('hello world')
+6
+​
+7
+# This is printed with 'end='&''.
+8
+# apple&mango&carrot&banana&hello world
+This is printed with 'end='&''.
+
+apple&mango&carrot&banana&hello world
+【例子】item值与'another string'两个值之间用sep设置的参数&分割。由于end参数没有设置，因此默认是输出解释后换行，即end参数的默认值为\n。
+
+1
+shoplist = ['apple', 'mango', 'carrot', 'banana']
+2
+print("This is printed with 'sep='&''.")
+3
+for item in shoplist:
+4
+    print(item, 'another string', sep='&')
+5
+​
+6
+# This is printed with 'sep='&''.
+7
+# apple&another string
+8
+# mango&another string
+9
+# carrot&another string
+10
+# banana&another string
+This is printed with 'sep='&''.
+
+apple&another string
+
+mango&another string
+
+carrot&another string
+
+banana&another string
+位运算
+1. 原码、反码和补码
+二进制有三种不同的表示形式：原码、反码和补码，计算机内部使用补码来表示。
+
+原码：就是其二进制表示（注意，有一位符号位）。
+
+00 00 00 11 -> 3
+10 00 00 11 -> -3
+反码：正数的反码就是原码，负数的反码是符号位不变，其余位取反（对应正数按位取反）。
+
+00 00 00 11 -> 3
+11 11 11 00 -> -3
+补码：正数的补码就是原码，负数的补码是反码+1。
+
+00 00 00 11 -> 3
+11 11 11 01 -> -3
+符号位：最高位为符号位，0表示正数，1表示负数。在位运算中符号位也参与运算。
+
+2. 按位运算
+按位非操作 ~
+~ 1 = 0
+~ 0 = 1
+~ 把num的补码中的 0 和 1 全部取反（0 变为 1，1 变为 0）有符号整数的符号位在 ~ 运算中同样会取反。
+
+00 00 01 01 -> 5
+~
+---
+11 11 10 10 -> -6
+
+11 11 10 11 -> -5
+~
+---
+00 00 01 00 -> 4
+按位与操作 &
+1 & 1 = 1
+1 & 0 = 0
+0 & 1 = 0
+0 & 0 = 0
+只有两个对应位都为 1 时才为 1
+
+00 00 01 01 -> 5
+&
+00 00 01 10 -> 6
+---
+00 00 01 00 -> 4
+按位或操作 |
+1 | 1 = 1
+1 | 0 = 1
+0 | 1 = 1
+0 | 0 = 0
+只要两个对应位中有一个 1 时就为 1
+
+00 00 01 01 -> 5
+|
+00 00 01 10 -> 6
+---
+00 00 01 11 -> 7
+按位异或操作 ^
+1 ^ 1 = 0
+1 ^ 0 = 1
+0 ^ 1 = 1
+0 ^ 0 = 0
+只有两个对应位不同时才为 1
+
+00 00 01 01 -> 5
+^
+00 00 01 10 -> 6
+---
+00 00 00 11 -> 3
+异或操作的性质：满足交换律和结合律
+
+A: 00 00 11 00
+B: 00 00 01 11
+
+A^B: 00 00 10 11
+B^A: 00 00 10 11
+
+A^A: 00 00 00 00
+A^0: 00 00 11 00
+
+A^B^A: = A^A^B = B = 00 00 01 11
+按位左移操作 <<
+num << i 将num的二进制表示向左移动i位所得的值。
+
+00 00 10 11 -> 11
+11 << 3
+---
+01 01 10 00 -> 88 
+按位右移操作 >>
+num >> i 将num的二进制表示向右移动i位所得的值。
+
+00 00 10 11 -> 11
+11 >> 2
+---
+00 00 00 10 -> 2 
+3. 利用位运算实现快速计算
+通过 <<，>> 快速计算2的倍数问题。
+
+n << 1 -> 计算 n*2
+n >> 1 -> 计算 n/2，负奇数的运算不可用
+n << m -> 计算 n*(2^m)，即乘以 2 的 m 次方
+n >> m -> 计算 n/(2^m)，即除以 2 的 m 次方
+1 << n -> 2^n
+通过 ^ 快速交换两个整数。 通过 ^ 快速交换两个整数。
+
+a ^= b
+b ^= a
+a ^= b
+通过 a & (-a) 快速获取a的最后为 1 位置的整数。
+
+00 00 01 01 -> 5
+&
+11 11 10 11 -> -5
+---
+00 00 00 01 -> 1
+
+00 00 11 10 -> 14
+&
+11 11 00 10 -> -14
+---
+00 00 00 10 -> 2
+4. 利用位运算实现整数集合
+一个数的二进制表示可以看作是一个集合（0 表示不在集合中，1 表示在集合中）。
+
+比如集合 {1, 3, 4, 8}，可以表示成 01 00 01 10 10 而对应的位运算也就可以看作是对集合进行的操作。
+
+元素与集合的操作：
+
+a | (1<<i)  -> 把 i 插入到集合中
+a & ~(1<<i) -> 把 i 从集合中删除
+a & (1<<i)  -> 判断 i 是否属于该集合（零不属于，非零属于）
+集合之间的操作：
+
+a 补   -> ~a
+a 交 b -> a & b
+a 并 b -> a | b
+a 差 b -> a & (~b)
+注意：整数在内存中是以补码的形式存在的，输出自然也是按照补码输出。
+
+【例子】C#语言输出负数。
+
+1
+class Program
+2
+{
+3
+    static void Main(string[] args)
+4
+    {
+5
+        string s1 = Convert.ToString(-3, 2);
+6
+        Console.WriteLine(s1); 
+7
+        // 11111111111111111111111111111101
+8
+        
+9
+        string s2 = Convert.ToString(-3, 16);
+10
+        Console.WriteLine(s2); 
+11
+        // fffffffd
+12
+    }
+13
+}
+【例子】 Python 的bin() 输出。
+
+1
+print(bin(3))  # 0b11
+2
+print(bin(-3))  # -0b11
+3
+​
+4
+print(bin(-3 & 0xffffffff))  
+5
+# 0b11111111111111111111111111111101
+6
+​
+7
+print(bin(0xfffffffd))       
+8
+# 0b11111111111111111111111111111101
+9
+​
+10
+print(0xfffffffd)  # 4294967293
+0b11
+
+-0b11
+
+0b11111111111111111111111111111101
+
+0b11111111111111111111111111111101
+
+4294967293
+是不是很颠覆认知，我们从结果可以看出：
+
+Python中bin一个负数（十进制表示），输出的是它的原码的二进制表示加上个负号，巨坑。
+Python中的整型是补码形式存储的。
+Python中整型是不限制长度的不会超范围溢出。
+所以为了获得负数（十进制表示）的补码，需要手动将其和十六进制数0xffffffff进行按位与操作，再交给bin()进行输出，得到的才是负数的补码表示。
