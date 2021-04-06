@@ -1,0 +1,33 @@
+dict.fromkeys(seq[, value]) 用于创建一个新字典，以序列 seq 中元素做字典的键，value 为字典所有键对应的初始值。
+【例子】
+
+1
+seq = ('name', 'age', 'sex')
+2
+dic1 = dict.fromkeys(seq)
+3
+print(dic1)
+4
+# {'name': None, 'age': None, 'sex': None}
+5
+​
+6
+dic2 = dict.fromkeys(seq, 10)
+7
+print(dic2)
+8
+# {'name': 10, 'age': 10, 'sex': 10}
+9
+​
+10
+dic3 = dict.fromkeys(seq, ('小马', '8', '男'))
+11
+print(dic3)
+12
+# {'name': ('小马', '8', '男'), 'age': ('小马', '8', '男'), 'sex': ('小马', '8', '男')}
+{'name': None, 'age': None, 'sex': None}
+
+{'name': 10, 'age': 10, 'sex': 10}
+
+{'name': ('小马', '8', '男'), 'age': ('小马', '8', '男'), 'sex': ('小马', '8', '男')}
+dict.keys()返回一个可迭代对象，可以使用 list() 来转换为列表，列表为字典中的所有键。
